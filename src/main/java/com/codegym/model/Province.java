@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "provinces")
@@ -10,8 +11,9 @@ public class Province {
     private Long id;
     private String name;
 
-    @OneToMany (targetEntity = Customer.class)
-    private Iterable<Customer> customers;
+//    @OneToMany (mappedBy = "province")
+    @OneToMany(targetEntity = Customer.class)
+    private Set<Customer> customers;
 
     public Province() {
     }
@@ -36,7 +38,7 @@ public class Province {
         return customers;
     }
 
-    public void setCustomers(Iterable<Customer> customers) {
+    public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
     }
 }

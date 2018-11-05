@@ -12,6 +12,16 @@ public class Customer {
     private String firstName;
     @Column(name="lastName")
     private String lastName;
+    //Test
+    private String provinceName;
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
 
     @ManyToOne
     @JoinColumn(name="province_id")

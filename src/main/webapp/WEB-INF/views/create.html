@@ -14,8 +14,8 @@
 <form th:action="@{/create}" method="post" th:object="${customer}">
     <input type="text" th:field="*{firstName}" placeholder="First Name">
     <input type="text" th:field="*{lastName}" placeholder="Last Name">
-    <select name="provinceSelect" id="provinceSelect" th:field="*{province}">
-        <option th:each="p : ${provinces}" th:value="p.id" th:text="${p.name}"></option>
+    <select th:field="*{provinceName}">
+        <option th:each="p : ${provinces}" th:value="${p.id}" th:text="${p.name}"></option>
     </select>
     <button type="submit">Create</button>
 </form>

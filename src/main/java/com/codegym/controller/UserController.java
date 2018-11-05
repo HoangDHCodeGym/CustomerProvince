@@ -40,6 +40,9 @@ public class UserController {
 
     @PostMapping("/create")
     public String save(@ModelAttribute("customer") Customer customer, Model model) {
+        System.out.println(customer.getProvinceName());
+        Province province = provinceService.findById(Long.parseLong(customer.getProvinceName()));
+        customer.setProvince(province);
         customerService.save(customer);
         model.addAttribute("message","Saved successfully!");
         return "create";
@@ -67,5 +70,4 @@ public class UserController {
         redirectAttributes.addFlashAttribute("message", "Deleted successfully!");
         return "redirect:/";
     }
-
 }
