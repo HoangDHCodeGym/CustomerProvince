@@ -13,7 +13,19 @@ public class Customer {
     @Column(name="lastName")
     private String lastName;
 
+    @ManyToOne
+    @JoinColumn(name="province_id")
+    private Province province;
+
     public Customer() {
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
     }
 
     public Long getId() {
